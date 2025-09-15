@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Nyumbani Real Estate — Media</title>
+  <meta name="description" content="Media showcase for Nyumbani Real Estate: responsive images, audio introductions, and video walkthroughs." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://xgambino.github.io/html5-practical/media.html" />
+</head>
+<body>
+  <!-- Accessibility: skip link -->
+  <a href="#main">Skip to content</a>
+
+  <header>
+    <h1>Nyumbani Real Estate</h1>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="media.html" aria-current="page">Media</a></li>
+        <li><a href="extras.html">Extras</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article>
+      <header>
+        <h2>Property Media Showcase</h2>
+      </header>
+
+      <section>
+        <h3>Responsive Property Image</h3>
+        <figure>
+          <picture>
+            <source srcset="assets/images/hero-large.jpg" media="(min-width: 1000px)">
+            <source srcset="assets/images/hero-medium.jpg" media="(min-width: 600px)">
+            <img src="assets/images/hero-small.jpg" alt="A modern luxury villa with pool">
+          </picture>
+          <figcaption>Luxury property image using the <code>&lt;picture&gt;</code> element.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Agent Audio Introduction</h3>
+        <audio controls>
+          <source src="assets/audio/sample.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </section>
+
+      <section>
+        <h3>Property Video Tour</h3>
+        <video controls width="640" poster="assets/images/hero-medium.jpg">
+          <source src="assets/video/sample.mp4" type="video/mp4">
+          <source src="assets/video/sample.webm" type="video/webm">
+          <track src="assets/captions/sample.vtt" kind="captions" srclang="en" label="English" default>
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </section>
+
+      <footer>
+        <address>
+          Contact: <a href="mailto:info@Nyumbani.com">info@Nyumbani.com</a><br>
+          Nyumbani Real Estate Agency, Nairobi, Kenya
+        </address>
+      </footer>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; <time datetime="2025">2025</time> Nyumbani Real Estate. All rights reserved.</p>
+  </footer>
+</body>
+</html>
