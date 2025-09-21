@@ -1,0 +1,291 @@
+/* NYUMBANI REAL ESTATE — MODERN LUXURY CSS
+   Fully annotated for learning and maintainability */
+
+/* Import Modern Fonts from Google Fonts
+   Inter: clean sans-serif for body & headings
+   Fira Code: monospace for inline code samples */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* Reset & Base Styles */
+/* Removes default browser margin/padding and ensures consistent box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* makes width/padding/border calculations easier */
+}
+
+/* Base HTML styling */
+html {
+  scroll-behavior: smooth; /* smooth scrolling for anchor links */
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* modern fonts */
+  background: linear-gradient(145deg, #f3f4f6, #e2e8f0); /* subtle gradient background */
+  color: #1a1a1a; /* default text color */
+}
+
+/* Body styling */
+body {
+  line-height: 1.65; /* more readable line height */
+  font-size: 1rem; /* default font size */
+  padding: 0 2rem; /* horizontal padding for breathing room */
+  background-attachment: fixed; /* keeps gradient fixed on scroll */
+}
+
+/* Links styling */
+a {
+  color: #6c63ff; /* default link color */
+  text-decoration: none; /* remove underline */
+  position: relative; /* required for underline animation pseudo-element */
+  transition: all 0.3s ease; /* smooth hover/focus effects */
+}
+/* Underline effect for links */
+a::after {
+  content: '';
+  position: absolute;
+  width: 0; /* hidden by default */
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: #ff6584; /* accent color */
+  transition: width 0.3s;
+}
+/* Expand underline on hover */
+a:hover::after {
+  width: 100%;
+}
+a:hover {
+  color: #ff6584; /* link color changes on hover */
+  transform: translateY(-1px); /* subtle lift effect */
+}
+
+/* Skip link for accessibility (keyboard navigation) */
+a[href="#main"] {
+  position: absolute; /* hide offscreen by default */
+  left: -999px;
+  top: -999px;
+  background: #6c63ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  z-index: 1000;
+}
+/* Bring skip link into view when focused */
+a[href="#main"]:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header & Navigation */
+header {
+  display: flex; /* horizontal layout */
+  justify-content: space-between; /* space between title and nav */
+  align-items: center; /* vertically center elements */
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.75); /* glass effect */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* soft shadow */
+  backdrop-filter: blur(15px); /* blur behind header for frosted glass */
+  margin-bottom: 3rem; /* spacing below header */
+  transition: all 0.3s ease;
+}
+
+header h1 {
+  font-size: 2.5rem; /* large main heading */
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+/* Navigation menu */
+nav ul {
+  display: flex; /* horizontal layout */
+  gap: 2rem; /* space between links */
+  list-style: none; /* remove bullets */
+}
+
+/* Highlight current page link */
+nav a[aria-current="page"] {
+  font-weight: 700;
+  color: #ff6584; /* accent color */
+  border-bottom: 3px solid #ff6584; /* visual indicator */
+}
+
+/* Main content area */
+main {
+  max-width: 1000px; /* limits width for readability */
+  margin: 0 auto 4rem auto; /* centers content and adds bottom margin */
+}
+
+/* Article card */
+article {
+  background: rgba(255,255,255,0.85); /* semi-transparent white card */
+  padding: 3rem 2.5rem;
+  border-radius: 24px; /* rounded corners */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1); /* soft shadow */
+  backdrop-filter: blur(15px); /* glassmorphism effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Hover lift effect on article card */
+article:hover {
+  transform: translateY(-5px); /* subtle movement */
+  box-shadow: 0 35px 60px rgba(0,0,0,0.15); /* slightly stronger shadow */
+}
+
+/* Article headings */
+article h2, article h3, article h4 {
+  margin-bottom: 1rem; /* spacing below heading */
+  color: #222;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Sections within articles */
+section {
+  margin-bottom: 2.5rem; /* spacing between sections */
+}
+
+/* Lists styling */
+ul, ol {
+  padding-left: 1.5rem;
+}
+ul li::marker, ol li::marker {
+  color: #6c63ff; /* colored bullets/numbers */
+  font-weight: 700;
+}
+
+/* Tables styling */
+table {
+  width: 100%; /* full width */
+  border-collapse: collapse; /* merge borders */
+  margin: 1.5rem 0;
+  background: transparent;
+}
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid #ccc; /* table borders */
+}
+th {
+  background: #f5f5f5; /* header row color */
+  font-weight: 600;
+  color: #222;
+}
+tbody tr:nth-child(even) {
+  background: #fafafa; /* zebra striping */
+}
+tfoot {
+  font-weight: 600;
+  background: #f0f0f0;
+}
+
+/* Details & Summary (Accordion effect) */
+details {
+  background: rgba(108, 99, 255, 0.08); /* soft purple background */
+  padding: 1.25rem;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+details[open] {
+  background: rgba(108, 99, 255, 0.15); /* slightly stronger when open */
+  transform: translateY(-2px); /* subtle lift */
+}
+
+/* Dialog boxes (in-flow) */
+dialog[open] {
+  position: static; /* normal flow, not floating */
+  transform: none;
+  width: 100%; /* full width */
+  max-width: none;
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #fff; /* white background */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* soft shadow */
+  resize: none; /* disable resize handle */
+  overflow: visible; /* ensure content visible */
+}
+
+/* Progress bar styling */
+progress {
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+progress::-webkit-progress-bar {
+  background: rgba(0,0,0,0.05); /* bar background */
+}
+progress::-webkit-progress-value {
+  background: linear-gradient(90deg, #6c63ff, #ff6584); /* gradient fill */
+}
+
+/* Meter styling */
+meter {
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 12px;
+}
+
+/* Aside (sidebar or side notes) */
+aside {
+  background: rgba(108, 99, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-top: 2.5rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 3rem;
+}
+
+/* Media elements (images, video, audio) */
+img, video, audio {
+  max-width: 100%; /* responsive */
+  border-radius: 16px;
+  margin-top: 1rem;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+img:hover, video:hover {
+  transform: scale(1.02); /* subtle zoom effect */
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15); /* stronger shadow on hover */
+}
+
+/* Inline code and sample elements */
+code, kbd, samp {
+  background: rgba(108, 99, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace; /* monospace font for code readability */
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 5px solid #6c63ff; /* colored accent bar */
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #555;
+  font-style: italic;
+  background: rgba(108, 99, 255, 0.05); /* subtle background highlight */
+  border-radius: 12px;
+}
+
+/* Time elements styling */
+time {
+  font-weight: 500;
+  color: #6c63ff;
+  letter-spacing: 0.5px;
+}
+
+/* Global transitions */
+* {
+  transition: all 0.3s ease; /* smooth hover/focus effects for all elements */
+}
