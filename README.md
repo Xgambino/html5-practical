@@ -44,6 +44,10 @@ It is built as part of an HTML5 practical exercise and deployed via GitHub Pages
 - **GitHub repository:** https://github.com/Xgambino/html5-practical  
 
 ---
+## 🐳 Docker Image
+- [Docker Hub: gambinoxxx/html5-css3-site](https://hub.docker.com/r/gambinoxxx/html5-css3-site)
+- Pull: `docker pull gambinoxxx/html5-css3-site:lab2`
+- Run: `docker run --rm -p 8080:80 gambinoxxx/html5-css3-site:lab2`
 
 ## Validation & Checklist
 
